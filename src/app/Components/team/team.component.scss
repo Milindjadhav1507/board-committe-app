@@ -1,0 +1,26 @@
+.sprint-column {
+    min-height: 600px;
+}
+.task-card {
+    cursor: move;
+}
+.priority-high {
+    border-left: 4px solid #dc3545;
+}
+.priority-medium {
+    border-left: 4px solid #ffc107;
+}
+.priority-low {
+    border-left: 4px solid #198754;
+}
+.story-points {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #6c757d;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}

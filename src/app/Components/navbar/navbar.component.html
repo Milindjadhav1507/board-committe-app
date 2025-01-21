@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" [routerLink]="['']" ><i class="bi bi-calendar-check"></i> Meeting Pro</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/dashboard']"><i class="bi bi-house"></i> Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/meeting']"><i class="bi bi-calendar2-plus"></i> Schedule Meeting</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/project_boards_overview']"><i class="bi bi-people"></i> Project Boards Overview</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/team']"><i class="bi bi-people"></i> Sprint Board</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/report']"><i class="bi bi-people"></i> Report</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/login']"><i class="bi bi-people"></i> Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/register']"><i class="bi bi-people"></i> Register</a>
+                </li>
+            </ul>
+            <div class="d-flex">
+                <div class="dropdown">
+                    <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        <i class="bi bi-person-circle"></i> Milind Jadhav
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" [routerLink]="['/']"><i class="bi bi-gear"></i> Settings</a></li>
+                        <li><a class="dropdown-item" [routerLink]="['/login']"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
+                        <li><a class="dropdown-item" [routerLink]="['/register']"><i class="bi bi-box-arrow-right"></i> Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

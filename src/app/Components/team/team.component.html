@@ -1,0 +1,248 @@
+    <!-- Sprint Header -->
+    <div class="container-fluid py-3">
+        <div class="row align-items-center mb-3">
+            <div class="col">
+                <h4>Sprint 23: Backend Optimization</h4>
+                <div class="text-muted">March 15 - March 29, 2025</div>
+            </div>
+            <div class="col-auto">
+                <div class="btn-group">
+                    <button class="btn btn-outline-primary">
+                        <i class="bi bi-calendar2-week"></i> Sprint Planning
+                    </button>
+                    <button class="btn btn-outline-primary">
+                        <i class="bi bi-card-checklist"></i> Backlog
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sprint Progress -->
+        <div class="card mb-3">
+            <div class="card-body">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="progress" style="height: 25px;">
+                            <div class="progress-bar bg-success" style="width: 45%">45% Completed</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row text-center">
+                            <div class="col">
+                                <div class="h4 mb-0">24/50</div>
+                                <small class="text-muted">Story Points</small>
+                            </div>
+                            <div class="col">
+                                <div class="h4 mb-0">8</div>
+                                <small class="text-muted">Days Left</small>
+                            </div>
+                            <div class="col">
+                                <div class="h4 mb-0">15</div>
+                                <small class="text-muted">Tasks</small>
+                            </div>
+                            <div class="col">
+                                <div class="h4 mb-0">3</div>
+                                <small class="text-muted">Blockers</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sprint Board -->
+    <div class="container-fluid">
+        <div class="row g-3">
+            <!-- To Do Column -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card">
+                    <div class="card-header bg-secondary text-white d-flex justify-content-between align-items-center">
+                        <h6 class="mb-0">To Do</h6>
+                        <span class="badge bg-light text-dark">5</span>
+                    </div>
+                    <div class="card-body sprint-column">
+                        <!-- Task Card -->
+                        <div class="card mb-2 task-card priority-high">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h6 class="card-title mb-0">API Optimization</h6>
+                                    <span class="story-points">5</span>
+                                </div>
+                                <p class="card-text small">Optimize database queries for better performance</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <span class="badge bg-danger">High</span>
+                                        <span class="badge bg-primary">Backend</span>
+                                    </div>
+                                    <img src="https://via.placeholder.com/24" class="rounded-circle" alt="Assignee">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Task Card -->
+                        <div class="card mb-2 task-card priority-medium">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h6 class="card-title mb-0">Cache Implementation</h6>
+                                    <span class="story-points">3</span>
+                                </div>
+                                <p class="card-text small">Implement Redis caching for frequently accessed data</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <span class="badge bg-warning">Medium</span>
+                                        <span class="badge bg-primary">Backend</span>
+                                    </div>
+                                    <img src="https://via.placeholder.com/24" class="rounded-circle" alt="Assignee">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- In Progress Column -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card">
+                    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                        <h6 class="mb-0">In Progress</h6>
+                        <span class="badge bg-light text-dark">4</span>
+                    </div>
+                    <div class="card-body sprint-column">
+                        <!-- Task Card -->
+                        <div class="card mb-2 task-card priority-high">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h6 class="card-title mb-0">Load Balancing</h6>
+                                    <span class="story-points">8</span>
+                                </div>
+                                <p class="card-text small">Implement load balancer for better traffic distribution</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <span class="badge bg-danger">High</span>
+                                        <span class="badge bg-info">DevOps</span>
+                                    </div>
+                                    <img src="https://via.placeholder.com/24" class="rounded-circle" alt="Assignee">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review Column -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card">
+                    <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
+                        <h6 class="mb-0">Review</h6>
+                        <span class="badge bg-light text-dark">3</span>
+                    </div>
+                    <div class="card-body sprint-column">
+                        <!-- Task Card -->
+                        <div class="card mb-2 task-card priority-medium">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h6 class="card-title mb-0">Error Handling</h6>
+                                    <span class="story-points">3</span>
+                                </div>
+                                <p class="card-text small">Implement global error handling middleware</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <span class="badge bg-warning">Medium</span>
+                                        <span class="badge bg-primary">Backend</span>
+                                    </div>
+                                    <img src="https://via.placeholder.com/24" class="rounded-circle" alt="Assignee">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Done Column -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card">
+                    <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
+                        <h6 class="mb-0">Done</h6>
+                        <span class="badge bg-light text-dark">3</span>
+                    </div>
+                    <div class="card-body sprint-column">
+                        <!-- Task Card -->
+                        <div class="card mb-2 task-card priority-low">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h6 class="card-title mb-0">Logging Setup</h6>
+                                    <span class="story-points">2</span>
+                                </div>
+                                <p class="card-text small">Set up centralized logging system</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <span class="badge bg-success">Low</span>
+                                        <span class="badge bg-info">DevOps</span>
+                                    </div>
+                                    <img src="https://via.placeholder.com/24" class="rounded-circle" alt="Assignee">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Action Button -->
+    <div class="position-fixed bottom-0 end-0 p-3">
+        <button class="btn btn-primary btn-lg rounded-circle shadow" data-bs-toggle="modal" data-bs-target="#addTaskModal">
+            <i class="bi bi-plus-lg"></i>
+        </button>
+    </div>
+
+    <!-- Add Task Modal -->
+    <div class="modal fade" id="addTaskModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add New Task</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label">Task Title</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Description</label>
+                            <textarea class="form-control" rows="3"></textarea>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Priority</label>
+                                <select class="form-select">
+                                    <option>High</option>
+                                    <option>Medium</option>
+                                    <option>Low</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Story Points</label>
+                                <input type="number" class="form-control">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Assignee</label>
+                            <select class="form-select">
+                                <option>John Doe</option>
+                                <option>Jane Smith</option>
+                                <option>Mike Johnson</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary">Add Task</button>
+                </div>
+            </div>
+        </div>
+    </div>

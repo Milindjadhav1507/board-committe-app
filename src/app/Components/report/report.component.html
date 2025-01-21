@@ -1,0 +1,265 @@
+  <!-- Report Content -->
+  <div class="container-fluid py-4">
+    <!-- Report Header -->
+    <div class="row mb-4">
+        <div class="col">
+            <h4>Development Analytics</h4>
+            <div class="text-muted">Sprint 23: March 15 - March 29, 2025</div>
+        </div>
+        <div class="col-auto">
+            <select class="form-select">
+                <option>Last Sprint</option>
+                <option>Current Sprint</option>
+                <option>Last 30 Days</option>
+                <option>Last Quarter</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Quick Stats -->
+    <div class="row g-3 mb-4">
+        <!-- Velocity -->
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h6 class="text-muted mb-2">Sprint Velocity</h6>
+                            <h3 class="mb-0">42 pts</h3>
+                            <small class="text-success">↑ 8% from last sprint</small>
+                        </div>
+                        <div class="text-primary">
+                            <i class="bi bi-speedometer2 fs-1"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Completion Rate -->
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h6 class="text-muted mb-2">Completion Rate</h6>
+                            <h3 class="mb-0">87%</h3>
+                            <small class="text-success">↑ 5% from last sprint</small>
+                        </div>
+                        <div class="text-success">
+                            <i class="bi bi-check-circle fs-1"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bug Rate -->
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h6 class="text-muted mb-2">Bug Rate</h6>
+                            <h3 class="mb-0">2.4%</h3>
+                            <small class="text-danger">↑ 0.5% from last sprint</small>
+                        </div>
+                        <div class="text-danger">
+                            <i class="bi bi-bug fs-1"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Code Coverage -->
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h6 class="text-muted mb-2">Code Coverage</h6>
+                            <h3 class="mb-0">92%</h3>
+                            <small class="text-success">↑ 2% from last sprint</small>
+                        </div>
+                        <div class="text-info">
+                            <i class="bi bi-shield-check fs-1"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Detailed Reports -->
+    <div class="row g-3">
+        <!-- Sprint Burndown -->
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Sprint Burndown</h5>
+                </div>
+                <div class="card-body">
+                    <div class="ratio ratio-21x9">
+                        <img src="/api/placeholder/800/400" alt="Sprint Burndown Chart" class="img-fluid rounded">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Task Distribution -->
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Task Distribution</h5>
+                </div>
+                <div class="card-body">
+                    <div class="ratio ratio-1x1">
+                        <img src="/api/placeholder/400/400" alt="Task Distribution Chart" class="img-fluid rounded">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team Velocity Trends -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Team Velocity Trends</h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Team</th>
+                                    <th>Velocity</th>
+                                    <th>Trend</th>
+                                    <th>Progress</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Frontend</td>
+                                    <td>28 pts</td>
+                                    <td><span class="text-success">↑ 4%</span></td>
+                                    <td>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-success" style="width: 85%"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Backend</td>
+                                    <td>32 pts</td>
+                                    <td><span class="text-success">↑ 6%</span></td>
+                                    <td>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-success" style="width: 90%"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>DevOps</td>
+                                    <td>18 pts</td>
+                                    <td><span class="text-danger">↓ 2%</span></td>
+                                    <td>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-warning" style="width: 70%"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Code Quality Metrics -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Code Quality Metrics</h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Metric</th>
+                                    <th>Value</th>
+                                    <th>Status</th>
+                                    <th>Trend</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Code Coverage</td>
+                                    <td>92%</td>
+                                    <td><span class="badge bg-success">Good</span></td>
+                                    <td><span class="text-success">↑ 2%</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Technical Debt</td>
+                                    <td>3.2%</td>
+                                    <td><span class="badge bg-warning">Medium</span></td>
+                                    <td><span class="text-danger">↑ 0.5%</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Code Duplication</td>
+                                    <td>1.8%</td>
+                                    <td><span class="badge bg-success">Good</span></td>
+                                    <td><span class="text-success">↓ 0.3%</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Issue Analysis -->
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Issue Analysis</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <div class="card bg-light">
+                                <div class="card-body">
+                                    <h6 class="card-title">Bug Priority Distribution</h6>
+                                    <div class="ratio ratio-1x1">
+                                        <img src="/api/placeholder/300/300" alt="Bug Priority Chart" class="img-fluid rounded">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card bg-light">
+                                <div class="card-body">
+                                    <h6 class="card-title">Resolution Time</h6>
+                                    <div class="ratio ratio-1x1">
+                                        <img src="/api/placeholder/300/300" alt="Resolution Time Chart" class="img-fluid rounded">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card bg-light">
+                                <div class="card-body">
+                                    <h6 class="card-title">Issue Types</h6>
+                                    <div class="ratio ratio-1x1">
+                                        <img src="/api/placeholder/300/300" alt="Issue Types Chart" class="img-fluid rounded">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
