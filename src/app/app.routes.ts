@@ -8,6 +8,7 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
 import { TeamComponent } from './Components/team/team.component';
 import { ReportComponent } from './Components/report/report.component';
 import { ReportsComponent } from './Components/reports/reports.component';
+import { PricingComponent } from './Components/pricing/pricing.component';
 
 export const routes: Routes = [
     {
@@ -59,6 +60,10 @@ export const routes: Routes = [
   {
     path: 'project_boards_overview',
     component: ReportsComponent,
+  }, 
+  {
+    path: 'price',
+    component: PricingComponent,
   }, 
 
 ];
