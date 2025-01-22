@@ -1,76 +1,496 @@
-<div class="container">
-    <div class="row main">
-        <div class="panel-heading">
-           <div class="panel-title text-center">
-                   <h1 class="title">Company Name</h1>
-                   <hr />
-               </div>
-        </div> 
-        <div class="main-login main-center">
-            <form class="form-horizontal" method="post" action="#">
-                
-                <div class="form-group">
-                    <label for="name" class="cols-sm-2 control-label">Your Name</label>
-                    <div class="cols-sm-10">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" name="name" id="name"  placeholder="Enter your Name"/>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="email" class="cols-sm-2 control-label">Your Email</label>
-                    <div class="cols-sm-10">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" name="email" id="email"  placeholder="Enter your Email"/>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="username" class="cols-sm-2 control-label">Username</label>
-                    <div class="cols-sm-10">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" name="username" id="username"  placeholder="Enter your Username"/>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="password" class="cols-sm-2 control-label">Password</label>
-                    <div class="cols-sm-10">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                            <input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password"/>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
-                    <div class="cols-sm-10">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                            <input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Confirm your Password"/>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group ">
-                    <button type="button" class="btn btn-primary btn-lg btn-block login-button">Register</button>
-                </div>
-                <div class="login-register">
-                    <a href="index.php">Login</a>
-                 </div>
-            </form>
+<div class="parent">
+    <div class="child">
+        <div class="card flex justify-content-center">
+            <p-calendar class="max-w-full" [(ngModel)]="date" [inline]="true" [showWeek]="true" />
         </div>
     </div>
 </div>
 
 
-<div class="card flex justify-content-center">
-    <p-calendar [(ngModel)]="date" />
+
+
+<!-- Create Meeting Modal -->
+<div class="modal fade" id="createMeetingModal" tabindex="-1" aria-labelledby="createMeetingModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="createMeetingModalLabel">
+                    <i class="bi bi-calendar-plus"></i> Create Meeting</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-0">
+                <div class="row g-0">
+                    <!-- Left Sidebar -->
+                    <div class="col-md-3 border-end">
+                        <div class="list-group list-group-flush">
+                            <a href="#basicInfo" class="list-group-item list-group-item-action active" data-bs-toggle="list">
+                                <i class="bi bi-info-circle me-2"></i> Basic Information
+                            </a>
+                            <a href="#schedule" class="list-group-item list-group-item-action" data-bs-toggle="list">
+                                <i class="bi bi-clock me-2"></i> Schedule & Recurrence
+                            </a>
+                            <a href="#participants" class="list-group-item list-group-item-action" data-bs-toggle="list">
+                                <i class="bi bi-people me-2"></i> Participants & Roles
+                            </a>
+                            <a href="#agenda" class="list-group-item list-group-item-action" data-bs-toggle="list">
+                                <i class="bi bi-list-check me-2"></i> Agenda Builder
+                            </a>
+                            <a href="#resources" class="list-group-item list-group-item-action" data-bs-toggle="list">
+                                <i class="bi bi-file-earmark-text me-2"></i> Resources & Documents
+                            </a>
+                            <a href="#settings" class="list-group-item list-group-item-action" data-bs-toggle="list">
+                                <i class="bi bi-gear me-2"></i> Meeting Settings
+                            </a>
+                            <a href="#preview" class="list-group-item list-group-item-action" data-bs-toggle="list">
+                                <i class="bi bi-eye me-2"></i> Preview & Send
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right Content Area -->
+                    <div class="col-md-9">
+                        <form id="createMeetingForm">
+                            <div class="tab-content p-4">
+                                <!-- Basic Information Tab -->
+                                <div class="tab-pane fade show active" id="basicInfo">
+                                    <h5 class="mb-4">Basic Information</h5>
+                                    <div class="row g-3">
+                                        <div class="col-md-12">
+                                            <label class="form-label">Meeting Title*</label>
+                                            <input type="text" class="form-control" required placeholder="Enter descriptive meeting title">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Meeting Type</label>
+                                            <select class="form-select">
+                                                <option>Board Meeting</option>
+                                                <option>Team Meeting</option>
+                                                <option>Project Review</option>
+                                                <option>Training Session</option>
+                                                <option>Client Meeting</option>
+                                                <option>Workshop</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Meeting Category</label>
+                                            <select class="form-select">
+                                                <option>Strategic Planning</option>
+                                                <option>Operations</option>
+                                                <option>Finance</option>
+                                                <option>HR</option>
+                                                <option>Marketing</option>
+                                                <option>IT</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="form-label">Meeting Description</label>
+                                            <textarea class="form-control" rows="3" placeholder="Brief description of meeting objectives and expected outcomes"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Schedule & Recurrence Tab -->
+                                <div class="tab-pane fade" id="schedule">
+                                    <h5 class="mb-4">Schedule & Recurrence</h5>
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <label class="form-label">Start Date*</label>
+                                            <input type="date" class="form-control" required>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label class="form-label">Start Time*</label>
+                                            <input type="time" class="form-control" required>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label class="form-label">Duration</label>
+                                            <select class="form-select">
+                                                <option>30 minutes</option>
+                                                <option>1 hour</option>
+                                                <option>1.5 hours</option>
+                                                <option>2 hours</option>
+                                                <option>Custom</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="recurringMeeting">
+                                                <label class="form-check-label" for="recurringMeeting">
+                                                    Make this a recurring meeting
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Recurrence Pattern</label>
+                                            <select class="form-select">
+                                                <option>Daily</option>
+                                                <option>Weekly</option>
+                                                <option>Bi-weekly</option>
+                                                <option>Monthly</option>
+                                                <option>Custom</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">End After</label>
+                                            <input type="number" class="form-control" placeholder="Number of occurrences">
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="form-label">Time Zone</label>
+                                            <select class="form-select">
+                                                <option>Eastern Time (ET)</option>
+                                                <option>Pacific Time (PT)</option>
+                                                <option>Central Time (CT)</option>
+                                                <option>Mountain Time (MT)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Participants & Roles Tab -->
+                                <div class="tab-pane fade" id="participants">
+                                    <h5 class="mb-4">Participants & Roles</h5>
+                                    <div class="row g-3">
+                                        <div class="col-md-12">
+                                            <div class="card mb-3">
+                                                <div class="card-header">
+                                                    <h6 class="mb-0">Meeting Roles</h6>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Meeting Host</label>
+                                                        <select class="form-select">
+                                                            <option>Select Host</option>
+                                                            <option>John Doe (You)</option>
+                                                            <option>Sarah Johnson</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Co-hosts</label>
+                                                        <select class="form-select" multiple>
+                                                            <option>Mike Smith</option>
+                                                            <option>Emma Davis</option>
+                                                            <option>David Wilson</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="card">
+                                                <div class="card-header d-flex justify-content-between align-items-center">
+                                                    <h6 class="mb-0">Invite Participants</h6>
+                                                    <button type="button" class="btn btn-sm btn-outline-primary">
+                                                        <i class="bi bi-person-plus"></i> Add
+                                                    </button>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="table-responsive">
+                                                        <table class="table table-hover">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Name</th>
+                                                                    <th>Role</th>
+                                                                    <th>Status</th>
+                                                                    <th>Actions</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>Sarah Johnson</td>
+                                                                    <td>
+                                                                        <select class="form-select form-select-sm">
+                                                                            <option>Presenter</option>
+                                                                            <option>Attendee</option>
+                                                                            <option>Observer</option>
+                                                                        </select>
+                                                                    </td>
+                                                                    <td><span class="badge bg-success">Available</span></td>
+                                                                    <td>
+                                                                        <button class="btn btn-sm btn-outline-danger">
+                                                                            <i class="bi bi-trash"></i>
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Agenda Builder Tab -->
+                                <div class="tab-pane fade" id="agenda">
+                                    <h5 class="mb-4">Agenda Builder</h5>
+                                    <div class="row g-3">
+                                        <div class="col-12">
+                                            <div class="card">
+                                                <div class="card-header d-flex justify-content-between align-items-center">
+                                                    <h6 class="mb-0">Agenda Items</h6>
+                                                    <button type="button" class="btn btn-sm btn-outline-primary">
+                                                        <i class="bi bi-plus"></i> Add Item
+                                                    </button>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="agenda-items">
+                                                        <!-- Agenda Item 1 -->
+                                                        <div class="card mb-3">
+                                                            <div class="card-body">
+                                                                <div class="row g-3">
+                                                                    <div class="col-md-8">
+                                                                        <input type="text" class="form-control" placeholder="Agenda Item Title">
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <input type="text" class="form-control" placeholder="Duration (minutes)">
+                                                                    </div>
+                                                                    <div class="col-12">
+                                                                        <textarea class="form-control" rows="2" placeholder="Item description and objectives"></textarea>
+                                                                    </div>
+                                                                    <div class="col-12">
+                                                                        <div class="d-flex gap-2">
+                                                                            <button type="button" class="btn btn-sm btn-outline-secondary">
+                                                                                <i class="bi bi-person"></i> Assign Presenter
+                                                                            </button>
+                                                                            <button type="button" class="btn btn-sm btn-outline-secondary">
+                                                                                <i class="bi bi-paperclip"></i> Attach Files
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Resources & Documents Tab -->
+                                <div class="tab-pane fade" id="resources">
+                                    <h5 class="mb-4">Resources & Documents</h5>
+                                    <div class="row g-3">
+                                        <div class="col-12">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h6 class="mb-0">Meeting Materials</h6>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Upload Documents</label>
+                                                        <input type="file" class="form-control" multiple>
+                                                    </div>
+                                                    <div class="table-responsive">
+                                                        <table class="table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Document Name</th>
+                                                                    <th>Type</th>
+                                                                    <th>Size</th>
+                                                                    <th>Actions</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>Meeting_Presentation.pptx</td>
+                                                                    <td>Presentation</td>
+                                                                    <td>2.5 MB</td>
+                                                                    <td>
+                                                                        <button class="btn btn-sm btn-outline-danger">
+                                                                            <i class="bi bi-trash"></i>
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Meeting Settings Tab -->
+                                <div class="tab-pane fade" id="settings">
+                                    <h5 class="mb-4">Meeting Settings</h5>
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h6 class="mb-0">Video & Audio Settings</h6>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="mb-3">
+                                                        <div class="form-check form-switch">
+                                                            <input class="form-check-input" type="checkbox" id="hostVideo">
+                                                            <label class="form-check-label" for="hostVideo">
+                                                                Start with host video on
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <div class="form-check form-switch">
+                                                            <input class="form-check-input" type="checkbox" id="participantVideo">
+                                                            <label class="form-check-label" for="participantVideo">
+                                                                Start with participant video on
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <div class="form-check form-switch">
+                                                            <input class="form-check-input" type="checkbox" id="muteParticipants">
+                                                            <label class="form-check-label" for="muteParticipants">
+                                                                Mute participants upon entry
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h6 class="mb-0">Security Settings</h6>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="mb-3">
+                                                        <div class="form-check form-switch">
+                                                            <input class="form-check-input" type="checkbox" id="waitingRoom">
+                                                            <label class="form-check-label" for="waitingRoom">
+                                                                Enable waiting room
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <div class="form-check form-switch">
+                                                            <input class="form-check-input" type="checkbox" id="requirePassword">
+                                                            <label class="form-check-label" for="requirePassword">
+                                                                Require meeting password
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Meeting Password</label>
+                                                        <input type="text" class="form-control" placeholder="Enter meeting password">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h6 class="mb-0">Additional Options</h6>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="row g-3">
+                                                        <div class="col-md-6">
+                                                            <div class="form-check form-switch">
+                                                                <input class="form-check-input" type="checkbox" id="recordMeeting">
+                                                                <label class="form-check-label" for="recordMeeting">
+                                                                    Automatically record meeting
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-check form-switch">
+                                                                <input class="form-check-input" type="checkbox" id="allowChat">
+                                                                <label class="form-check-label" for="allowChat">
+                                                                    Enable chat
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-check form-switch">
+                                                                <input class="form-check-input" type="checkbox" id="allowPolls">
+                                                                <label class="form-check-label" for="allowPolls">
+                                                                    Enable polling
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-check form-switch">
+                                                                <input class="form-check-input" type="checkbox" id="allowScreenShare">
+                                                                <label class="form-check-label" for="allowScreenShare">
+                                                                    Allow screen sharing
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Preview & Send Tab -->
+                                <div class="tab-pane fade" id="preview">
+                                    <h5 class="mb-4">Preview & Send</h5>
+                                    <div class="row g-3">
+                                        <div class="col-md-8">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h6 class="mb-0">Meeting Preview</h6>
+                                                </div>
+                                                <div class="card-body">
+                                                    <dl class="row">
+                                                        <dt class="col-sm-4">Title</dt>
+                                                        <dd class="col-sm-8">Team Sprint Planning Meeting</dd>
+
+                                                        <dt class="col-sm-4">Date & Time</dt>
+                                                        <dd class="col-sm-8">Jan 23, 2025 10:00 AM EST</dd>
+
+                                                        <dt class="col-sm-4">Duration</dt>
+                                                        <dd class="col-sm-8">1 hour</dd>
+
+                                                        <dt class="col-sm-4">Participants</dt>
+                                                        <dd class="col-sm-8">12 invited</dd>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h6 class="mb-0">Notification Settings</h6>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Send Notifications</label>
+                                                        <select class="form-select">
+                                                            <option>Immediately</option>
+                                                            <option>1 hour before</option>
+                                                            <option>1 day before</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="sendReminders">
+                                                        <label class="form-check-label" for="sendReminders">
+                                                            Send reminder notifications
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" id="saveDraft">
+                    <i class="bi bi-save"></i> Save Draft
+                </button>
+                <button type="submit" form="createMeetingForm" class="btn btn-success">
+                    <i class="bi bi-send"></i> Create & Send Invites
+                </button>
+            </div>
+        </div>
+    </div>
 </div>
+
+<!-- Button to trigger modal -->
+<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createMeetingModal">
+    <i class="bi bi-plus-circle"></i> Create Meeting
+</button>
