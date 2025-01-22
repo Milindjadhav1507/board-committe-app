@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { CalendarModule } from 'primeng/calendar';
+// import { CalendarModule } from 'primeng/calendar';
 import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [FormsModule, CalendarModule],
+  imports: [FormsModule,],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })

@@ -9,6 +9,8 @@ import { TeamComponent } from './Components/team/team.component';
 import { ReportComponent } from './Components/report/report.component';
 import { ReportsComponent } from './Components/reports/reports.component';
 import { PricingComponent } from './Components/pricing/pricing.component';
+import { DocumentManagementComponent } from './Components/document-management/document-management.component';
+import { MeetingListComponent } from './Components/meeting-list/meeting-list.component';
 
 export const routes: Routes = [
     {
@@ -64,6 +66,14 @@ export const routes: Routes = [
   {
     path: 'price',
     component: PricingComponent,
+  }, 
+  {
+    path: 'document',
+    component: DocumentManagementComponent,
+  }, 
+  {
+    path: 'meeting-list',
+    component: MeetingListComponent,
   }, 
 
 ];
