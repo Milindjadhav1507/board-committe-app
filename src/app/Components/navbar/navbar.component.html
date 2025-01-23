@@ -34,6 +34,9 @@
                 <li class="nav-item">
                     <a class="nav-link" [routerLink]="['/ui/integrationapps']"> Integration With Appps</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link"(click)="opensettings(setting)"> Settings</a>
+                </li>
                <!--  <li class="nav-item">
                     <a class="nav-link" [routerLink]="['/register']"> Register</a>
                 </li>
@@ -57,3 +60,48 @@
         </div>
     </div>
 </nav>
+
+
+
+
+
+
+
+
+
+
+
+<ng-template #setting let-offcanvas>
+	<div class="offcanvas-header">
+		<h4 class="offcanvas-title">Setting</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="offcanvas.dismiss('Cross click')"></button>
+	</div>
+	<div class="offcanvas-body">
+<div class="row">
+    <div class="col-md-12">
+        <div class="d-flex flex-column flex-shrink-0" style="width: 100%">
+            <ul class="nav nav-pills flex-column mb-auto">
+              <li *ngFor="let item of menuItems; let i = index" class="nav-item">
+                <a class="nav-link" [class.active]="i === activeTab" (click)="setActiveTab(i)">{{ item }}</a>
+              </li>
+            </ul>
+            <hr>
+            <div class="dropdown">
+              <a class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="https://github.com/mdo.png" alt="User avatar" width="32" height="32" class="rounded-circle me-2">
+                <strong>Vijay Jadhav</strong>
+              </a>
+              <ul class="dropdown-menu text-small shadow">
+                <li><a class="dropdown-item" >New project...</a></li>
+                <li><a class="dropdown-item" >Settings</a></li>
+                <li><a class="dropdown-item" >Profile</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" >Sign out</a></li>
+              </ul>
+            </div>
+          </div>
+    </div>
+</div>
+
+	</div>
+</ng-template>
