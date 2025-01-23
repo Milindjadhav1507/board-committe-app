@@ -1,37 +1,439 @@
-<div class="row">
-    <div class="col-md-2">
-        <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style="width: 280px;">
-          <a  class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-            <span class="fs-4">Integration With Apps</span>
-          </a>
-          <hr>
-          <ul class="nav nav-pills flex-column mb-auto">
-            <li 
-              *ngFor="let item of menuItems; let i = index" 
-              class="nav-item">
-              <a 
-                 
-                class="nav-link" 
-                [class.active]="i === activeTab"
-                (click)="setActiveTab(i)">
-                {{ item }}
-              </a>
-            </li>
-          </ul>
-          <hr>
-          <div class="dropdown">
-            <a class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="https://github.com/mdo.png" alt="User avatar" width="32" height="32" class="rounded-circle me-2">
-              <strong>Vijay Jadhav</strong>
-            </a>
-            <ul class="dropdown-menu text-small shadow">
-              <li><a class="dropdown-item" >New project...</a></li>
-              <li><a class="dropdown-item" >Settings</a></li>
-              <li><a class="dropdown-item" >Profile</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" >Sign out</a></li>
-            </ul>
+
+<div class="container p-4">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link" 
+         [class.active]="activeTab === 'meeting'" 
+         (click)="setActiveTab('meeting')">
+        Meeting
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" 
+         [class.active]="activeTab === 'calendar'" 
+         (click)="setActiveTab('calendar')">
+        Calendar
+      </a>
+    </li>
+  </ul>
+  
+</div>
+
+
+
+
+<div class="tab-content">
+  <div *ngIf="activeTab === 'meeting'">
+<div class="container my-5">
+  <table class="table table-hover mt-3">
+    <thead>
+      <tr>
+        <th>Upcoming</th>
+        <th>Past</th>
+        <th>Deleted</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <div class="d-flex align-items-center">
+            <i class="bi bi-calendar-week text-danger me-2"></i>
+            <div>
+              <h5 class="mb-0">Test Board Meeting</h5>
+              <p class="mb-0">9:00am-10:00am | Wednesday, January 29 2025</p>
+            </div>
+            <div class="ms-auto">
+              <i class="bi bi-check-circle-fill text-success"></i>
+            </div>
+          </div>
+        </td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+  </div>
+
+
+  <div *ngIf="activeTab === 'calendar'">
+    <div class="container my-5">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h1>Meetings</h1>
+        <button (click)="openmeetigns(meets)" class="btn btn-primary" id="add-meeting-btn"><i class="bi bi-plus-lg"></i> Add Meeting</button>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-8 offset-md-2">
+          <div class="card">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h2 class="card-title">January 2025</h2>
+                <div>
+                  <button class="btn btn-outline-secondary me-2">
+                    <i class="bi bi-calendar-check"></i> Meetings
+                  </button>
+                  <button class="btn btn-outline-secondary me-2">
+                    <i class="bi bi-list-task"></i> Tasks
+                  </button>
+                  <button class="btn btn-outline-secondary">
+                    <i class="bi bi-calendar2-event"></i> Polls
+                  </button>
+                </div>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-bordered text-center">
+                  <thead>
+                    <tr>
+                      <th class="date-cell">Sun</th>
+                      <th class="date-cell">Mon</th>
+                      <th class="date-cell">Tue</th>
+                      <th class="date-cell">Wed</th>
+                      <th class="date-cell">Thu</th>
+                      <th class="date-cell">Fri</th>
+                      <th class="date-cell">Sat</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="date-cell">29</td>
+                      <td class="date-cell">30</td>
+                      <td class="date-cell">31</td>
+                      <td class="date-cell">1</td>
+                      <td class="date-cell">2</td>
+                      <td class="date-cell">3</td>
+                      <td class="date-cell">4</td>
+                    </tr>
+                    <tr>
+                      <td class="date-cell">5</td>
+                      <td class="date-cell">6</td>
+                      <td class="date-cell">7</td>
+                      <td class="date-cell">8</td>
+                      <td class="date-cell">9</td>
+                      <td class="date-cell">10</td>
+                      <td class="date-cell">11</td>
+                    </tr>
+                    <tr>
+                      <td class="date-cell">12</td>
+                      <td class="date-cell">13</td>
+                      <td class="date-cell">14</td>
+                      <td class="date-cell">15</td>
+                      <td class="date-cell">16</td>
+                      <td class="date-cell">17</td>
+                      <td class="date-cell">18</td>
+                    </tr>
+                    <tr>
+                      <td class="date-cell">19</td>
+                      <td class="date-cell">20</td>
+                      <td class="date-cell">21</td>
+                      <td class="date-cell">22</td>
+                      <td class="date-cell bg-primary text-white">23</td>
+                      <td class="date-cell">24</td>
+                      <td class="date-cell">25</td>
+                    </tr>
+                    <tr>
+                      <td class="date-cell">26</td>
+                      <td class="date-cell">27</td>
+                      <td class="date-cell">28</td>
+                      <td class="date-cell badges ">29 <br> Q4 Test Board Meeting</td>
+                      <td class="date-cell">30</td>
+                      <td class="date-cell">31</td>
+                      <td class="date-cell">1</td>
+                    </tr>
+                    <tr>
+                      <td class="date-cell">2</td>
+                      <td class="date-cell">3</td>
+                      <td class="date-cell">4</td>
+                      <td class="date-cell">5</td>
+                      <td class="date-cell">6</td>
+                      <td class="date-cell">7</td>
+                      <td class="date-cell">8</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
 </div>
+
+
+
+
+
+<ng-template #meets let-modal>
+  <div class="modal-header bg-light" style="padding-left: 28px; padding-bottom: 0px;">
+    <h4 class="modal-title fw-bold">Meetings</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+
+    <div ngbAccordion>
+      <div ngbAccordionItem [collapsed]="false">
+        <h2 ngbAccordionHeader>
+          <button ngbAccordionButton>Meeting Details</button>
+        </h2>
+        <div ngbAccordionCollapse>
+          <div ngbAccordionBody>
+            <ng-template>
+              <div class="container mt-4">
+                <div class="row justify-content-center">
+                    <div class="col-md-8 form-section">
+                        <form>
+                            <div class="mb-3">
+                                <label for="title" class="form-label">TITLE</label>
+                                <input type="text" class="form-control" id="title" placeholder="Add title">
+                            </div>
+                            <div class="mb-3">
+                                <label for="description" class="form-label">DESCRIPTION</label>
+                                <div class="description-toolbar d-flex align-items-center gap-2 p-2">
+                                     <button type="button" class="btn btn-sm" title="bold"> <i class="bi bi-type-bold"></i></button>
+                                     <button type="button" class="btn btn-sm" title="italic"><i class="bi bi-type-italic"></i></button>
+                                     <button type="button" class="btn btn-sm" title="underline"> <i class="bi bi-type-underline"></i></button>
+                                     <button type="button" class="btn btn-sm" title="list"> <i class="bi bi-list-ul"></i></button>
+                                     <button type="button" class="btn btn-sm" title="link"> <i class="bi bi-link-45deg"></i></button>
+                                     <button type="button" class="btn btn-sm" title="unlink"><i class="bi bi-link-slash"></i></button>
+                                     <button type="button" class="btn btn-sm" title="clear formatting"> <i class="bi bi-type"></i></button>
+                                     <select class="form-select form-select-sm" style="max-width: 150px;">
+                                        <option value="paragraph">Paragraph</option>
+                                        <option value="h1">Heading 1</option>
+                                        <option value="h2">Heading 2</option>
+                                        <option value="h3">Heading 3</option>
+                                    </select>
+                                 </div>
+                                <textarea id="description" class="form-control description-textarea" placeholder="Add description"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="meetingOwner" class="form-label">MEETING OWNER</label>
+                                <select class="form-select" id="meetingOwner">
+                                    <option value="milind jadhav">milind jadhav</option>
+                                </select>
+                            </div>
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="easyAccessSwitch">
+                                    <label class="form-check-label ms-2" for="easyAccessSwitch">Easy Access</label>
+                                </div>
+                                 <i class="bi bi-question-circle ms-1"></i>
+                            </div>
+            
+                          <div class="info-box"><i class="bi bi-info-circle me-2"></i> Easy Access can only be enabled while creating a meeting</div>
+            
+                            <div class="d-flex justify-content-end mt-4">
+                                <button type="button" class="btn btn-primary">Next</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+
+      <div ngbAccordionItem>
+        <h2 ngbAccordionHeader>
+          <button ngbAccordionButton>
+            <span>Date and Time</span>
+          </button>
+        </h2>
+        <div ngbAccordionCollapse>
+          <div ngbAccordionBody>
+            <ng-template>
+              <div class="container mt-4">
+                <div class="row justify-content-center">
+                    <div class="col-md-8 form-section">
+                        <form>
+                            <div class="mb-3">
+                                <label for="timeZone" class="form-label">TIME ZONE</label>
+                                <select class="form-select" id="timeZone">
+                                    <option value="pacific">Pacific</option>
+                                     <option value="atlantic">Atlantic</option>
+                                </select>
+                            </div>
+                            <div class="day-label">Day 1</div>
+            
+                            <div class="mb-3">
+                                 <label for="date" class="form-label">DATE</label>
+                                    <input type="text" class="form-control" id="date" value="Thursday, January 23, 2025">
+                                </div>
+                               <div class="mb-3">
+                                  <label  class="form-label">TIME</label>
+                              <div class="time-group">
+                                <div >
+                                    <label for="startTime" class="form-label">START TIME</label>
+                                  <div class="input-group">
+                                   <input type="text" class="form-control " id="startTime" value="3:00 pm">
+                                   <span class="input-group-text"><i class="bi bi-clock"></i></span>
+                                   </div>
+                                 </div>
+                                  <div>
+                                      <label for="endTime" class="form-label">END TIME</label>
+                                      <div class="input-group">
+                                         <input type="text" class="form-control" id="endTime" value="4:00 pm">
+                                          <span class="input-group-text">(1 hr) <i class="bi bi-clock"></i></span>
+                                       </div>
+                                   </div>
+                               </div>
+                              </div>
+            
+                        </form>
+                    </div>
+                </div>
+            </div>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+
+      <div ngbAccordionItem>
+        <h2 ngbAccordionHeader>
+          <button ngbAccordionButton>
+            <span>Invitees</span>
+          </button>
+        </h2>
+        <div ngbAccordionCollapse>
+          <div ngbAccordionBody>
+            <ng-template>
+              <div class="container mt-4">
+                <div class="row justify-content-center">
+                    <div class="col-md-8 form-section">
+                        <form>
+                            <div class="mb-3">
+                                <label for="searchGroups" class="form-label">GROUPS AND PEOPLE</label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-white border-end-0"><i class="bi bi-search"></i></span>
+                                    <input type="text" class="form-control border-start-0" id="searchGroups" placeholder="Search groups and people">
+                                </div>
+                            </div>
+                            <label class="form-label">GROUPS</label>
+                            <div class="group-list">
+                                <ul class="list-group">
+                                    <li class="list-group-item d-flex align-items-center gap-2"> <i class="bi bi-person"></i> Board</li>
+                                </ul>
+                            </div>
+                          <div class="mt-3"><label class="form-label">PEOPLE</label></div>
+                             <div class="people-list">
+                                <ul class="list-group" id="peopleList">
+                                  <li class="list-group-item" *ngFor="let person of people" (click)="addRemovedPerson(person)"> <i class="bi bi-person"></i> {{person.name}}
+                                   </li>
+                                </ul>
+                            </div>
+                            <div class="mt-3 d-flex justify-content-between align-items-center">
+                                <label class="form-label">RECENTLY REMOVED ({{ removedPeople.length }})</label>
+                             </div>
+                            <div class="removed-list">
+                                <ul class="list-group" id="removedPeopleList">
+                                    <li class="list-group-item" *ngFor="let person of removedPeople">
+                                        <i class="bi bi-person"></i> {{person.name}}
+                                        <button  type="button" class="readd-button" (click)="addPersonBack(person)">+ Re-add</button>
+                                    </li>
+                                 </ul>
+                            </div>
+                            <div class="button-container">
+                                <button type="button" class="btn btn-secondary">Back</button>
+                                <button type="button" class="btn btn-primary">Next</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+      <div ngbAccordionItem>
+        <h2 ngbAccordionHeader>
+          <button ngbAccordionButton>
+            <span>Guests</span>
+          </button>
+        </h2>
+        <div ngbAccordionCollapse>
+          <div ngbAccordionBody>
+            <ng-template>
+              <div class="container mt-4">
+                <div class="row justify-content-center">
+                    <div class="col-md-8 form-section">
+                        <form id="guestForm">
+                            <div class="mb-3">
+                                <label class="form-label">ADD GUEST</label>
+                             <div class="d-flex gap-2">
+                                 <input type="text" class="form-control" id="firstName" placeholder="First name" [(ngModel)]="firstName" name="firstName">
+                                 <input type="text" class="form-control" id="lastName" placeholder="Last name"  [(ngModel)]="lastName" name="lastName">
+                            </div>
+                            <div class="error-message" id="firstNameError">{{firstNameError}}</div>
+                            </div>
+                            <div class="mb-3">
+                                 <input type="email" class="form-control" id="email" placeholder="Email address" [(ngModel)]="email" name="email">
+                            </div>
+                            <button type="button" class="btn btn-primary" (click)="addGuest()">+ Add guest</button>
+                            <div class="mt-3">
+                               <label class="form-label">RECENTLY ADDED</label>
+                                <div  class="guest-list">
+                                    <ul class="list-group" id="guestList">
+                                     <li class="list-group-item" *ngFor="let guest of guests">
+                                          <i class="bi bi-envelope"></i> {{ guest.firstName }} {{ guest.lastName }} - {{guest.email}}
+                                       </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="button-container">
+                                 <button type="button" class="btn btn-secondary">Back</button>
+                                 <button type="button" class="btn btn-primary">Finish</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+      <div ngbAccordionItem>
+        <h2 ngbAccordionHeader>
+          <button ngbAccordionButton>
+            <span>Summary</span>
+          </button>
+        </h2>
+        <div ngbAccordionCollapse>
+          <div ngbAccordionBody>
+            <ng-template>
+              <div class="container mt-4">
+                <div class="row justify-content-center">
+                    <div class="col-md-8 meeting-details-card">
+                        <div class="d-flex align-items-center">
+                          <div class="calendar-icon">
+                            <span>JAN</span>
+                             <span>23</span>
+                            </div>
+                            <div class="details-text">
+                             <i class="bi bi-calendar-event"></i>  Multi-day meeting starting Thursday, January 23, 2025 at 3:00 pm - 4:00 pm
+                            </div>
+            
+                        </div>
+                         <div>
+                           <i class="bi bi-camera-video"></i> Boardable Video
+                        </div>
+                       <div>
+                           <i class="bi bi-envelope"></i> Guests (1): milindjadhav&#64;esarwa.com
+                      </div>
+                    </div>
+                </div>
+            </div>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <hr>
+    		<div class="modal-footer">
+          <button type="button" class="btn btn-primary" >Create Meeting</button>
+			<button type="button" class="btn btn-secondary" (click)="modal.close('Close click')">Close</button>
+		</div>
+
+  </div>
+</ng-template>

@@ -40,17 +40,17 @@ activeTab: number = 0;
 // Method to set the active tab
 setActiveTab(index: number): void {
   this.activeTab = index;
+
+  this.router.navigate([this.menuItems[index].route]);
 }
 
 // List of menu items
-menuItems: string[] = [
-  // 'Home',
-  'Task',
-  'Polls',
-  'Meetings',
-  'Peoples',
-  // 'Collaboration',
-  // 'Communication',
+menuItems: { name: string; route: string }[] = [
+  { name: 'Task', route: '/ui/task' },
+  { name: 'Polls', route: '/ui/polls' },
+  { name: 'Meetings', route: '/ui/meetings' },
+  { name: 'Peoples', route: '/ui/peoples' },
+  { name: 'Meeting', route: '/ui/settings' },
 ];
 
 
