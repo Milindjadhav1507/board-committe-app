@@ -1,0 +1,176 @@
+<div class="row">
+    <div class="col-md-2">
+      <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style="width: 280px;">
+        <a  class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+          <span class="fs-4">Integration With Apps</span>
+        </a>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li 
+            *ngFor="let item of menuItems; let i = index" 
+            class="nav-item">
+            <a 
+               
+              class="nav-link" 
+              [class.active]="i === activeTab"
+              (click)="setActiveTab(i)">
+              {{ item }}
+            </a>
+          </li>
+        </ul>
+        <hr>
+        <div class="dropdown">
+          <a class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://github.com/mdo.png" alt="User avatar" width="32" height="32" class="rounded-circle me-2">
+            <strong>Vijay Jadhav</strong>
+          </a>
+          <ul class="dropdown-menu text-small shadow">
+            <li><a class="dropdown-item" >New project...</a></li>
+            <li><a class="dropdown-item" >Settings</a></li>
+            <li><a class="dropdown-item" >Profile</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" >Sign out</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-md-10 p-4">
+
+        <!-- All integrations-->
+        <div class="col-md-12" *ngIf="activeTab === menuItems.indexOf('All integrations')">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title mb-4"><i class="bi bi-camera-video-fill me-2"></i>All integrations</h5>
+                <hr>
+                <div class="row">
+                    <div *ngFor="let allinteg of ALL_INTEGRATIONS" class="col-md-3   mb-3">
+                    <div class="d-flex align-items-center">
+                        <img [src]="allinteg.image" [alt]="allinteg.name" class="me-3" width="32" height="32" />
+                        <div>
+                        <h6 class="mb-1">{{ allinteg.name }}</h6>
+                        <p class="mb-0">{{ allinteg.description }}</p>
+                        </div>
+                    </div>
+                    <a [href]="allinteg.buttonLink" class="btn btn-outline-primary btn-sm mt-2">{{ allinteg.buttonLabel }}</a>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Calender-->
+        <div class="col-md-12" *ngIf="activeTab === menuItems.indexOf('Calendar')">
+            <div class="card mb-4">
+                <div class="card-body">
+                <h5 class="card-title mb-4"><i class="bi bi-camera-video-fill me-2"></i>Calendar</h5>
+                <hr>
+                <div class="row">
+                    <div *ngFor="let meeting of CALENDAR" class="col-md-3 mb-3">
+                    <div class="d-flex align-items-center">
+                        <img [src]="meeting.image" [alt]="meeting.name" class="me-3" width="32" height="32" />
+                        <div>
+                        <h6 class="mb-1">{{ meeting.name }}</h6>
+                        <p class="mb-0">{{ meeting.description }}</p>
+                        </div>
+                    </div>
+                    <a [href]="meeting.buttonLink" class="btn btn-outline-primary btn-sm mt-2">{{ meeting.buttonLabel }}</a>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <!--CRM-->
+        <div class="col-md-12" *ngIf="activeTab === menuItems.indexOf('CRM')">
+            <div class="card mb-4">
+                <div class="card-body">
+                <h5 class="card-title mb-4"><i class="bi bi-camera-video-fill me-2"></i>CRM</h5>
+                <hr>
+                <div class="row">
+                    <div *ngFor="let allinteg of CRM" class="col-md-3 mb-3">
+                    <div class="d-flex align-items-center">
+                        <img [src]="allinteg.image" [alt]="allinteg.name" class="me-3" width="32" height="32" />
+                        <div>
+                        <h6 class="mb-1">{{ allinteg.name }}</h6>
+                        <p class="mb-0">{{ allinteg.description }}</p>
+                        </div>
+                    </div>
+                    <a [href]="allinteg.buttonLink" class="btn btn-outline-primary btn-sm mt-2">{{ allinteg.buttonLabel }}</a>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+          
+        <!--Video Meetings-->
+            <div class="col-md-12" *ngIf="activeTab === menuItems.indexOf('Video Meetings')">
+            <div class="card mb-4">
+                <div class="card-body">
+                <h5 class="card-title mb-4"><i class="bi bi-camera-video-fill me-2"></i>Video Meetings</h5>
+                <hr>
+                <div class="row">
+                    <div *ngFor="let allinteg of VIDEO_MEETINGS" class="col-md-3 mb-3">
+                    <div class="d-flex align-items-center">
+                        <img [src]="allinteg.image" [alt]="allinteg.name" class="me-3" width="32" height="32" />
+                        <div>
+                        <h6 class="mb-1">{{ allinteg.name }}</h6>
+                        <p class="mb-0">{{ allinteg.description }}</p>
+                        </div>
+                    </div>
+                    <a [href]="allinteg.buttonLink" class="btn btn-outline-primary btn-sm mt-2">{{ allinteg.buttonLabel }}</a>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Collaboration-->
+        <div class="col-md-12" *ngIf="activeTab === menuItems.indexOf('Collaboration')">
+            <div class="card mb-4">
+                <div class="card-body">
+                <h5 class="card-title mb-4"><i class="bi bi-camera-video-fill me-2"></i>Collaboration</h5>
+                <hr>
+                <div class="row">
+                    <div *ngFor="let allinteg of COLLABORATION" class="col-md-3 mb-3">
+                    <div class="d-flex align-items-center">
+                        <img [src]="allinteg.image" [alt]="allinteg.name" class="me-3" width="32" height="32" />
+                        <div>
+                        <h6 class="mb-1">{{ allinteg.name }}</h6>
+                        <p class="mb-0">{{ allinteg.description }}</p>
+                        </div>
+                    </div>
+                    <a [href]="allinteg.buttonLink" class="btn btn-outline-primary btn-sm mt-2">{{ allinteg.buttonLabel }}</a>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--Communication-->
+        <div class="col-md-12" *ngIf="activeTab === menuItems.indexOf('Communication')">
+            <div class="card mb-4">
+                <div class="card-body">
+                <h5 class="card-title mb-4"><i class="bi bi-camera-video-fill me-2"></i>Communication</h5>
+                <hr>
+                <div class="row">
+                    <div *ngFor="let allinteg of COMMUNICATION" class="col-md-3 mb-3">
+                    <div class="d-flex align-items-center">
+                        <img [src]="allinteg.image" [alt]="allinteg.name" class="me-3" width="32" height="32" />
+                        <div>
+                        <h6 class="mb-1">{{ allinteg.name }}</h6>
+                        <p class="mb-0">{{ allinteg.description }}</p>
+                        </div>
+                    </div>
+                    <a [href]="allinteg.buttonLink" class="btn btn-outline-primary btn-sm mt-2">{{ allinteg.buttonLabel }}</a>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+  </div>
+  

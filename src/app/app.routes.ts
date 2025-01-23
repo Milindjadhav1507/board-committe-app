@@ -19,14 +19,16 @@ export const routes: Routes = [
       pathMatch: 'full',
     },
 
-  //   {
-  //     path: 'home',
-  //     loadComponent: () => import('./Components/home/home.component'),
-  //   },
+    {
+      path: 'ui',
+      loadChildren: () => import('./Components/ui/ui.module').then(m => m.UiModule),
+    },
+
   {
     path: 'navbar',
     component: NavbarComponent,
   },
+
   {
     path: 'footer',
     component: FooterComponent,
