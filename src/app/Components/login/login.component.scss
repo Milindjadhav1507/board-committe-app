@@ -77,14 +77,14 @@ form {
 	flex-direction: column;
 	padding: 0 50px;
 	height: 100%;
-	text-align: center;
+	// text-align: center;
 }
 
 input {
 	background-color: #eee;
 	border: none;
-	padding: 12px 15px;
-	margin: 8px 0;
+	// padding: 12px 15px;
+	// margin: 8px 0;
 	width: 100%;
 }
 
@@ -238,5 +238,24 @@ input {
     background-color: #fff; /* Optional: for visualization */
     border-radius: 10px; /* Optional: for styling */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: for styling */
+  }
+  
+  .card {
+	border-radius: 10px;
+  }
+  
+  .card-header {
+	background-color: #007bff;
+	color: white;
+	font-weight: bold;
+  }
+  
+  .btn-primary {
+	background-color: #007bff;
+	border-color: #007bff;
+  }
+  
+  .btn-primary:hover {
+	background-color: #0056b3;
   }
   
